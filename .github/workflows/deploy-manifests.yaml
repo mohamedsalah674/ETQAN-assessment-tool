@@ -7,7 +7,6 @@ on:
     paths:
       - 'infra/**'
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
