@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Transition from "./utils/Transition";
-import accreditation from "../../../public/abet/abetaccreditation.PNG";
+import accreditation from "../../../public/abet/abetaccreditation.jpg";
 import assessment from "../../../public/abet/abetassessment.jpg";
 import membersociety from "../../../public/abet/abetmembersociety.jpg";
 import Image from "next/dist/client/image";
