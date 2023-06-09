@@ -25,7 +25,7 @@ build:
           - src: '**/*.js'
             dest: .
     - image: mohamedsalah112/adminstration
-      context: adminstration_backend (1)
+      context: adminstration_backend
       docker:
         dockerfile: Dockerfile
       sync:
