@@ -14,6 +14,7 @@ import buildClient from '../hooks/build';
 import Router from 'next/router';
 import catchAxiosError from '../utils/error';
 
+
 export default function MyApp({ Component, pageProps, user }) {
   const [loading, setLoading] = useState(false);
 

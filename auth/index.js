@@ -8,6 +8,7 @@ const user_updated_consumer = require("./events/consumer/user_updated_event")
 mongoose.set('strictQuery', false);
 dotenv.config();
 
+
 const start = async () => {
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
