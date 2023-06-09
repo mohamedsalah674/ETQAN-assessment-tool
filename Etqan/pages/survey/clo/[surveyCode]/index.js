@@ -32,7 +32,7 @@ export default function CourseSurvey({
         }
       );
       toast.success("Survey submitted successfully");
-      router.push(`https://etqan.dev`);
+      router.push(`https://www.etqanassessmenttool.me`);
     } catch (error) {
       toast.error("Error submitting survey. Please try again later.");
     }

@@ -164,7 +164,7 @@ const CreateSurveyPage = ({ studentEmails, courseData, courseSurveyLink }) => {
       const createdSurveyId = response.data.data.survey_id;
       setSurveyId(createdSurveyId);
 
-      const surveyLink = `etqan.dev/survey/overall/${createdSurveyId}`;
+      const surveyLink = `www.etqanassessmenttool.me/survey/overall/${createdSurveyId}`;
       setSurveyLink(surveyLink);
       toast.success("Survey created successfully!");
     } catch (error) {
@@ -328,7 +328,7 @@ export async function getServerSideProps(context) {
       `/api/assessment/overallsurveys/${courseData.surveyId}`
     );
     const surveyData = surveyResponse.data.data;
-    const surveyLink = `http://etqan.dev/survey/overall/${surveyData.survey_id}`;
+    const surveyLink = `http://www.etqanassessmenttool.me/survey/overall/${surveyData.survey_id}`;
     const studentEmails = [];
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email validation
 

@@ -19,7 +19,7 @@ const CreateSurveyLink = ({ clos, courseName, courseCode }) => {
   
     if (selectedCLOData) {
       const surveyId = selectedCLOData.surveyId;
-      const surveyLink = `etqan.dev/survey/clo/${surveyId}`; 
+      const surveyLink = `www.etqanassessmenttool.me/survey/clo/${surveyId}`; 
       const generatedLink = `Generated Survey Link for CLO ${selectedCLOData.CLO_number}: ${surveyLink}`;
        setSurveyLinks((prevLinks) => [...prevLinks, generatedLink]);
     }

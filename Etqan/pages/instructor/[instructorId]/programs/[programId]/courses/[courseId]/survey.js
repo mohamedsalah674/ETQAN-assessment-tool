@@ -31,7 +31,7 @@ const CreateSurveyLink = ({ clos, courseName, courseCode, studentEmails }) => {
     if (selectedCLOData) {
       try {
         const surveyId = selectedCLOData.surveyId;
-        const surveyLink = `http://etqan.dev/survey/clo/${surveyId}`;
+        const surveyLink = `http://www.etqanassessmenttool.me/survey/clo/${surveyId}`;
         if (!surveyId) {
           toast.error("you can't create survey for this CLO.");
           return;
