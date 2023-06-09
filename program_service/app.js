@@ -17,6 +17,7 @@ import departmentRouter from "./routes/show_department.js";
 
 
 
+
 // 1) MIDDLEWARES
 app.use(cors());
 dotenv.config();
