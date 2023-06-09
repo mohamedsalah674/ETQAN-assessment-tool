@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'adminstration (1)/**'
+      - 'adminstration_backend (1)/**'
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: cd adminstration (1) && docker build -t mohamedsalah112/adminstration .
+      - run: cd adminstration_backend (1) && docker build -t mohamedsalah112/adminstration .
       - run: docker push mohamedsalah112/adminstration
       - uses: digitalocean/action-doctl@v2
         with:
