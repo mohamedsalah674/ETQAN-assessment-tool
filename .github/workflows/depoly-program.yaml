@@ -1,0 +1,20 @@
+name: deploy-program
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'program_service/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login -u $USER_NAME -p $USER_PASSWORD
+        env:
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      - run: cd program_service && docker build -t mohamedsalah112/program .
+      - run: docker push mohamedsalah112/program
