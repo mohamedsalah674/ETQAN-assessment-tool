@@ -11,8 +11,6 @@ const errorHandler = require('salahorg/middlewares/error-handler');
 const cors = require('cors');
 const app = express();
 
-
-
 // const course_created_consumer = require("./events/consumer/course-created-event")
 // const course_updated_consumer = require("./events/consumer/course-updated-event")
 // const course_deleted_consumer = require("./events/consumer/course-deleted-event")
