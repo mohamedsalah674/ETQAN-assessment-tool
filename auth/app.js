@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
 app.use(
   cors()
+  
 
 );
 
