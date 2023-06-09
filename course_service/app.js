@@ -31,6 +31,8 @@ import sendMail from "./routes/emailRoutes.js";
 // const requireAuth = require("salahorg/middlewares/require-auth.js");
 // const { isAuthorizedUser } = require("salahorg/middlewares/checkRole.js");
 
+
+
 // 1) MIDDLEWARES
 app.use(cors());
 dotenv.config();

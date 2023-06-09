@@ -67,6 +67,7 @@ kind: Service
 metadata:
   name: kafka-srv
 
+
 spec:
   selector:
     app: kafka
