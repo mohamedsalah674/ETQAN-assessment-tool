@@ -1,0 +1,25 @@
+name: deploy-adminstration
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'adminstration (1)/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: cd adminstration (1) && docker build -t mohamedsalah112/adminstration .
+      - run: docker push mohamedsalah112/adminstration
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save etqan
+      - run: kubectl rollout restart deployment adminstration-depl
