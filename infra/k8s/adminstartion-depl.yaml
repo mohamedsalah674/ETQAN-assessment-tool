@@ -28,6 +28,7 @@ spec:
                 secretKeyRef:
                   name: sendgrid-secret
                   key: SENDGRID_API_KEY 
+                  
 
 ---
 apiVersion: v1
