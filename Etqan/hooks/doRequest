@@ -1,0 +1,99 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// this is used to send requests from the pages component
+
+import axios from 'axios';
+import { useState } from 'react';
+
+import PopupMessage from '../components/popupmesage';
+const useRequest = (url, method, onSuccess, body) => {
+  const [errors, setErrors] = useState(null);
+
+  const doRequest = async () => {
+    setErrors(null);
+    if (method === 'get') {
+      await axios
+        .get(url, { withCredentials: true })
+        .then((res) => {
+          onSuccess(res);
+        })
+        .catch((err) => {
+          setErrors(err);
+          // PopupMessage(
+          //   err.response
+          //     ? err.response.data.errors[0].message
+          //     : "Error in the request function body",
+          //   "Error"
+          // );
+          err.response
+            ? //@ts-ignore
+              err.response.data.errors.map((err) =>
+                PopupMessage(err.message, 'Error')
+              )
+            : PopupMessage('Error in the request function body', 'Error');
+        });
+    } else if (method === 'post') {
+      await axios
+        .post(url, body, { withCredentials: true })
+        .then((res) => {
+          onSuccess(res);
+        })
+        .catch((err) => {
+          setErrors(err);
+          err.response
+            ? //@ts-ignore
+              err.response.data.errors.map((err) =>
+                PopupMessage(err.message, 'Error')
+              )
+            : PopupMessage('Error in the request function body', 'Error');
+        });
+    } else if (method === 'put') {
+      await axios
+        .put(url, body, { withCredentials: true })
+        .then((res) => {
+          onSuccess(res);
+        })
+        .catch((err) => {
+          setErrors(err);
+          err.response
+            ? //@ts-ignore
+              err.response.data.errors.map((err) =>
+                PopupMessage(err.message, 'Error')
+              )
+            : PopupMessage('Error in the request function body', 'Error');
+        });
+    } else if (method === 'patch') {
+      await axios
+        .patch(url, body, { withCredentials: true })
+        .then((res) => {
+          onSuccess(res);
+        })
+        .catch((err) => {
+          setErrors(err);
+          err.response
+            ? //@ts-ignore
+              err.response.data.errors.map((err) =>
+                PopupMessage(err.message, 'Error')
+              )
+            : PopupMessage('Error in the request function body', 'Error');
+        });
+    } else if (method === 'delete') {
+      await axios
+        .delete(url, { withCredentials: true })
+        .then((res) => {
+          onSuccess(res);
+        })
+        .catch((err) => {
+          setErrors(err);
+          err.response
+            ? //@ts-ignore
+              err.response.data.errors.map((err) =>
+                PopupMessage(err.message, 'Error')
+              )
+            : PopupMessage('Error in the request function body', 'Error');
+        });
+    }
+  };
+  return { doRequest, errors };
+};
+
+export default useRequest;

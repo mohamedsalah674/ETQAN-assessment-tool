@@ -1,0 +1,9 @@
+apiVersion: skaffold/v2beta11
+kind: Config
+metadata:
+  name: cfg2
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/kafka/*
+

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: course-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: course
+  template:
+    metadata:
+      labels:
+        app: course
+    spec:
+      containers: 
+        - name: course
+          image: mohamedsalah112/course
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://course-mongo-srv:27017/course'  
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: course-srv
+spec:
+  selector:
+    app: course
+
+  ports:
+    - name: course
+      protocol: TCP
+      port: 8000
+      targetPort: 8000

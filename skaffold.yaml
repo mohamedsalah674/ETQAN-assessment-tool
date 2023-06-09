@@ -1,0 +1,59 @@
+apiVersion: skaffold/v2beta11
+kind: Config
+requires:
+  - configs: ["cfg1"]
+    path: ./modulezookeeper.yaml
+
+  - configs: ["cfg2"]
+    path: ./module.yaml
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: mohamedsalah112/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+    - image: mohamedsalah112/adminstration
+      context: adminstration_backend (1)
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+
+    - image: mohamedsalah112/course
+      context: course_service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+
+    - image: mohamedsalah112/program
+      context: program_service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+
+    - image: mohamedsalah112/client
+      context: Etqan
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.js"
+            dest: .

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+
+  labels:
+    app: zookeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+        - name: zookeeper
+          image: digitalwonderland/zookeeper
+          env:
+            - name: ALLOW_ANONYMOUS_LOGIN
+              value: "yes"
+            - name: ZOOKEEPER_ID
+              value: "1"
+            - name: ZOOKEEPER_SERVER_1
+              value: zookeeper
+          resources: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper
+
+spec:
+  selector:
+    app: zookeeper
+  ports:
+    - name: "2181"
+      port: 2181
+      targetPort: 2181
+      protocol: TCP
+    - name: "2888"
+      port: 2888
+      targetPort: 2888
+      protocol: TCP
+    - name: "3888"
+      port: 3888
+      targetPort: 3888
+      protocol: TCP

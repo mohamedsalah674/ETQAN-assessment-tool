@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminstration-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adminstration
+  template:
+    metadata:
+      labels:
+        app: adminstration
+    spec:
+      containers: 
+        - name: adminstration
+          image: mohamedsalah112/adminstration
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://adminstration-mongo-srv:27017/adminstration'  
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adminstration-srv
+spec:
+  selector:
+    app: adminstration
+  ports:
+    - name: adminstration
+      protocol: TCP
+      port: 4000
+      targetPort: 4000

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: program-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: program
+  template:
+    metadata:
+      labels:
+        app: program
+    spec:
+      containers: 
+        - name: program
+          image: mohamedsalah112/program
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://program-mongo-srv:27017/program'  
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: program-srv
+spec:
+  selector:
+    app: program
+
+  ports:
+    - name: program
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
