@@ -85,9 +85,9 @@ export default function courses() {
       <>
         <SectionHeading text="courses List" />
         <AdminNavbar />
-        <div className="bg-blue-200 pt-20 pb-20 min-h-screen ">
+        <div className="bg-blue-200 pt-20 pb-20 min-h-screen w-full ">
           <div className="mr-10 items-baseline space-x-4 flex flex-col justify-center ml-96">
-            <table className="w-4/5  mt-10 table-auto bg-black">
+            <table className=" mt-10 table-auto bg-black">
               <thead>
                 <tr className="bg-gray-800">
                   <th className="px-24 py-2">

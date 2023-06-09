@@ -51,10 +51,10 @@ const Signin = () => {
           router.push(`/coordinator/${data.user._id}/dashboard`);
           break;
         case "dean":
-          router.push("/dean/deanreport");
+          router.push("/dean/dashboard");
           break;
         case "head_of_department":
-          router.push(`/headofdepartment/${data.user._id}/dashbord`);
+          router.push(`/headofdepartment/${data.user._id}/dashboard`);
           break;
         default:
           router.push("/login");

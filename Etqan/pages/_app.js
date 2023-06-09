@@ -14,8 +14,6 @@ import buildClient from '../hooks/build';
 import Router from 'next/router';
 import catchAxiosError from '../utils/error';
 
-
-
 export default function MyApp({ Component, pageProps, user }) {
   const [loading, setLoading] = useState(false);
 
@@ -169,10 +167,10 @@ MyApp.getInitialProps = async (appContext) => {
           console.log(pathname, 'inside');
 
           if (res) {
-            res.writeHead(302, { Location: `/dean/deanreport` });
+            res.writeHead(302, { Location: `/dean/dashboard` });
             res.end();
           } else {
-            Router.push(`/dean/deanreport`);
+            Router.push(`/dean/dashboard`);
           }
         }
       }

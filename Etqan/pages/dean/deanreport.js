@@ -3,10 +3,9 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import buildClient from "../../hooks/build";
 import VulnChart from "../../components/Graph";
-import SideNavbar from "../../components/SideNavbar";
+import Link from "next/link";
 
 export default function PDF({ programAndSos }) {
-  const [showContent, setShowContent] = useState(false);
   const pdfRef = useRef();
 
   const downloadPDF = () => {
@@ -58,36 +57,16 @@ export default function PDF({ programAndSos }) {
   const x = result.length;
   const data2 = Array(x).fill(70);
 
-  const links = [
-    {
-      text: "Dean Report",
-      href: `/dean/headrrport`,
-      icon: "/icons/report.svg",
-      alt: "programs",
-    },
-  ];
+ 
+  
 
   return (
     <>
-      <SideNavbar links={links} />
-      {!showContent && (
-        <div className="flex bg-sky-200 flex-col items-center justify-center min-h-screen py">
-        <div className="flex flex-col ml-auto mr-auto h-72  mt-5 p-8 w-1/4 bg-white border-4 border-[#00b4ba] rounded-2xl justify-center">
-        <div className="flex items-center justify-center h-screen">
-          <button
-            className="btn btn-primary text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"
-            onClick={() => setShowContent(true)}
-          >
-            Show Programs report
-          </button>
-        </div>
-        </div>
-        </div>
-
-      )}
-      {showContent && (
+    
+    
+     
         
-        <div ref={pdfRef} className="container ml-64 mt-5 border p-5 text-center">
+        <div ref={pdfRef} className="container mx-auto mt-5 border p-5 text-center">
         <div className="flex justify-between">
           <img
             src="/benhalogo.jpg"
@@ -280,16 +259,22 @@ export default function PDF({ programAndSos }) {
           in our educational offerings.
         </div>
         <VulnChart data1={result} data2={data2} />
-        <div className="flex flex-col items-center justify-center mt-5">
+       
+      </div>
+      <div className="flex flex-col items-center justify-center mt-5">
           <button
             className="btn btn-primary text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"
             onClick={downloadPDF}
           >
             Download Report
           </button>
+          <Link
+          className="btn ml-2 mt-8 btn-primary text-white bg-gray-500 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          href={`/dean`}
+        >
+          Back to main page
+        </Link>
         </div>
-      </div>
-      )}
  
     </>
   );
