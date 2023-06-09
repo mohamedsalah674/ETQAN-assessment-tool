@@ -29,13 +29,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: sendgrid-secret
-                  key: SENDGRID_API_KEY
+                  key: SENDGRID_API_KEY 
             - name: TOTP_SECRET
               valueFrom:
                 secretKeyRef:
                   name: totp-secret
-                  key: TOTP_SECRET
-                  
+                  key: TOTP_SECRET 
+
 ---
 apiVersion: v1
 kind: Service
