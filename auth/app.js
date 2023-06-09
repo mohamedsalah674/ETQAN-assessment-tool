@@ -12,10 +12,15 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
 app.use(
   cors()
-  
+
 
 );
 
+app.use (cookieSession({
+  signed: false,
+  secure: false,
+})
+)
 app.use(cookieParser());
 // app.use(
 //   cookieSession({
