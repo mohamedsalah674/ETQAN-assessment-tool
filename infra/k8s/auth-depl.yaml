@@ -25,6 +25,16 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY 
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sendgrid-secret
+                  key: SENDGRID_API_KEY
+            - name: TOTP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: totp-secret
+                  key: TOTP_SECRET
 ---
 apiVersion: v1
 kind: Service
