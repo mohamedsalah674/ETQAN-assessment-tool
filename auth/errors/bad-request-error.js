@@ -1,6 +1,7 @@
 const CustomError = require('./custom-error');
 module.exports = class BadRequestError extends CustomError {
   statusCode = 400;
+  
 
   constructor(message) {
     super(message);
