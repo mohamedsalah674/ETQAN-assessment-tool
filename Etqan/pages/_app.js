@@ -184,4 +184,5 @@ MyApp.getInitialProps = async (appContext) => {
     console.error("Error in getInitialProps:", error);
     return {};
   }
+  
 };
