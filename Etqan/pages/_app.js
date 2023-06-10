@@ -176,7 +176,7 @@ MyApp.getInitialProps = async (appContext) => {
       }
     }
 
-    
+
     return {
       pageProps,
       user,
@@ -187,3 +187,5 @@ MyApp.getInitialProps = async (appContext) => {
   }
 
 };
+
+
