@@ -33,7 +33,6 @@ import sendMail from "./routes/emailRoutes.js";
 
 
 
-
 // 1) MIDDLEWARES
 app.use(cors());
 dotenv.config();
