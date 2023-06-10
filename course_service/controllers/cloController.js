@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 export const getAllClos = async (req, res) => {
   const courseId = req.params.courseId; // Get the courseId from request parameters
   try {
+    
     console.log("Course id is : ", courseId);
     const course = await Course.findById(courseId); // Find the course by _id
 

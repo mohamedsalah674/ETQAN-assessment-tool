@@ -4,6 +4,7 @@ const topic = "user-created-topic"
 const  kafka = require("salahorg/events/consumer/base-listener")
 const { json } = require("express")
  
+
   const consumer = kafka.consumer({ groupId: 'user_created_adminstartion-service' })
   
   const user_created_consumer = async () => {
