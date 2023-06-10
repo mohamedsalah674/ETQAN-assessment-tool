@@ -15,6 +15,7 @@ const FacultyDeanPage = ({ programs }) => {
     },
   ];
   return (
+    
     <>
       <>
         <SideNavbar links={links} />
