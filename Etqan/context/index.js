@@ -7,6 +7,7 @@ const initialState = {
   user: null,
 };
 
+
 //create context
 
 const Context = createContext();
