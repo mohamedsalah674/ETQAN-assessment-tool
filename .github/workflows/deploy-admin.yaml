@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'adminstration_backend/**'
-      
 
 jobs:
   build:

@@ -18,6 +18,7 @@ export const getCoordinator = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
     console.log(error);
   }
+  
 };
 export const createCoordinator = async (req, res) => {
   try {

@@ -36,7 +36,6 @@ spec:
                   name: totp-secret
                   key: TOTP_SECRET 
                   
-
 ---
 apiVersion: v1
 kind: Service
