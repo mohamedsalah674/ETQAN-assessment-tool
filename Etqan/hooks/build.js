@@ -5,7 +5,7 @@ const buildClient = ({ req },url) => {
     // We are on the server
      console.log(req.cookies.token,'jjjjjj');
     return axios.create({
-      baseURL: 'http://www.etqanassessmenttool.me',
+      baseURL: 'https://www.etqanassessmenttool.me',
       headers:req.headers
     });
   } else {
